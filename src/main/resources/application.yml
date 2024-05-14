@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: MyDemo
+
+server:
+  port: 8080
+
+management:
+  endpoint:
+    health:
+      show-details: always

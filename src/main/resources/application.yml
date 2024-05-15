@@ -1,6 +1,17 @@
 spring:
   application:
     name: MyDemo
+  cloud:
+    stream:
+      bindings:
+        output-channel:
+          destination: custom-topic
+          binder: my-kafka-binder
+      binders:
+        my-kafka-binder:
+          type: kafka
+          environment:
+            bootstrap-servers: localhost:9092
 
 server:
   port: 8080

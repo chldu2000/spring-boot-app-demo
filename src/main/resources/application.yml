@@ -2,16 +2,20 @@ spring:
   application:
     name: MyDemo
   cloud:
+    function:
+      definition: inputChannel
     stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          auto-create-topics: true
       bindings:
-        output-channel:
+        outputChannel-out-0:
           destination: custom-topic
-          binder: my-kafka-binder
-      binders:
-        my-kafka-binder:
-          type: kafka
-          environment:
-            bootstrap-servers: localhost:9092
+        inputChannel-in-0:
+          destination: custom-topic
+#      poller:
+#        fixed-delay: 500
 
 server:
   port: 8080

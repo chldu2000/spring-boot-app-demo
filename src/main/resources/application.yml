@@ -10,7 +10,7 @@ spring:
           brokers: localhost:9092
           auto-create-topics: true
       bindings:
-        outputChannel-out-0:
+        outputChannel:
           destination: custom-topic
         inputChannel-in-0:
           destination: custom-topic

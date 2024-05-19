@@ -9,7 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class StreamService {
 
-    private static final String OUTPUT_BINDING = "outputChannel-out-0";
+    /**
+     * Here not using Supplier which requires function definition
+     * So binding name can be without direction and index
+     */
+    private static final String OUTPUT_BINDING = "outputChannel";
 
     @Autowired
     private StreamBridge streamBridge;

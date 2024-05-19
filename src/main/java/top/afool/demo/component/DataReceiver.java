@@ -2,6 +2,7 @@ package top.afool.demo.component;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
+import org.springframework.messaging.Message;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Consumer;
@@ -11,9 +12,7 @@ import java.util.function.Consumer;
 public class DataReceiver {
 
     @Bean
-    Consumer<String> inputChannel() {
-        return message -> {
-            log.info("Received: {}", message);
-        };
+    Consumer<Message<String>> inputChannel() { // or Consumer<String>
+        return message -> log.info("Received: {}", message.getPayload());
     }
 }

@@ -3,7 +3,7 @@ spring:
     name: MyDemo
   cloud:
     function:
-      definition: inputChannel
+      definition: simpleMessage
     stream:
       kafka:
         binder:
@@ -12,7 +12,7 @@ spring:
       bindings:
         outputChannel:
           destination: custom-topic
-        inputChannel-in-0:
+        simpleMessage-in-0:
           destination: custom-topic
 #      poller:
 #        fixed-delay: 500

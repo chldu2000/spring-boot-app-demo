@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import top.afool.demo.entity.SimpleMessage;
 import top.afool.demo.service.StreamService;
 
 @RestController
@@ -14,10 +15,10 @@ import top.afool.demo.service.StreamService;
 public class StreamController {
 
     @Autowired
-    private StreamService service;
+    private StreamService<SimpleMessage> service;
 
     @PostMapping("/output")
-    public ResponseEntity<String> send(@RequestBody String message) {
+    public ResponseEntity<Object> send(@RequestBody SimpleMessage message) {
         boolean succeeded = service.sendToOutputChannel(message);
 
         return succeeded ? new ResponseEntity<>(message, HttpStatus.OK) : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
